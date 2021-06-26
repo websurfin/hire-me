@@ -9,12 +9,12 @@
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage{fontawesome}
 \RequirePackage{etoolbox}
+\RequirePackage{changepage}
 
 %%% CUSTOMIZE FONTS AND COLORS
 \setmainfont{Droid Serif}
 \setsansfont{Arial}
 \newfontfamily{\titlefont}{Play} % Go is big/kinda clean, arial, 
-
 
 % colors
 \definecolor{heading}{HTML}{00693e}
@@ -28,8 +28,12 @@
 \colorlet{body}{body}
 
 
-
 %%% GENERAL FORMATTING
+\setlength{\parindent}{0pt}
+\newenvironment{fullwidth}{
+    \begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
+    {\end{adjustwidth}}
+
 \newcommand{\resumesection}[2][]{
 	\medskip
 	\ifstrequal{#1}{}
@@ -45,13 +49,18 @@
 	{\color{heading}\rule{\linewidth}{2pt}\par}
 }
 
+\newcommand{\resumesubsection}[1]{
+	\smallskip
+	{\color{emphasis}\large\bfseries{#1}\par}
+	\medskip
+}
+
 % customize `\subsection`
 \titleformat{\subsection}
 {\rmfamily\large\raggedright} % serif, less large, left aligned font
 {} % set section label
 {0em} % set section label spacing
 {} % run code before heading
-
 
 
 %%% PERSONAL INFORMATION SECTION
