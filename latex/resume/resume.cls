@@ -45,22 +45,38 @@
 			\input{#1}
 		}
 	}
-	{\color{heading}\LARGE\bfseries\MakeUppercase{#2}}\\[-1ex]
-	{\color{heading}\rule{\linewidth}{2pt}\par}
+	{
+	    \color{heading}\LARGE\bfseries\MakeUppercase{#2}
+	}
+	\\[-1ex]
+	{
+	    \color{heading}\rule{\linewidth}{2pt}\par
+	}
 }
 
 \newcommand{\resumesubsection}[1]{
 	\smallskip
-	{\color{emphasis}\large\bfseries{#1}\par}
+	{
+	    \color{emphasis}\large\bfseries{#1}\par
+	}
 	\medskip
 }
 
-% customize `\subsection`
-\titleformat{\subsection}
-{\rmfamily\large\raggedright} % serif, less large, left aligned font
-{} % set section label
-{0em} % set section label spacing
-{} % run code before heading
+\newcommand{\datedentry}[4]{
+	{
+	    \large\color{emphasis} #1 \par
+	}
+	\smallskip
+	\textbf{\color{accent} #2}\par
+	\smallskip
+	{
+		\small\makebox[0.5\linewidth][l]{
+		    \faCalendar\hspace{0.5em} #3
+		}
+		\par
+	}
+	\medskip
+}
 
 
 %%% PERSONAL INFORMATION SECTION
