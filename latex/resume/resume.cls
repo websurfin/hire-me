@@ -47,3 +47,41 @@
 {} % set section label
 {0em} % set section label spacing
 {} % run code before heading
+
+
+
+
+
+%%% PERSONAL INFORMATION SECTION
+\newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
+\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}#2\hspace{1.5em}}}
+
+\newcommand{\name}[1]{\def\@name{#1}}
+\newcommand{\email}[1]{\href{mailto:#1}{\printinfo{\faEnvelope}{#1}}}
+\newcommand{\location}[1]{\printinfo{\faMapMarker}{#1}}
+\newcommand{\address}[1]{\printinfo{\faMapMarker}{#1}} % feels a bit sensitive to share address so easily? 
+% Maybe use \location for more public cases and \address for more private cases
+\newcommand{\phone}[1]{\printinfo{\faMobile}{#1}}
+\newcommand{\website}[1]{
+	\href{#1}{
+		\printinfo{\faChain}{\textcolor{heading}{Website}}
+	}
+}
+\newcommand{\github}[2]{
+	\href{#2}{
+		\printinfo{\faGithub}{\textcolor{heading}{#1}}
+	}
+}
+% I don't use these much, perhaps link on website?
+% \newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
+% \newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+
+%% display personal info
+\newcommand{\makeheader}{%
+	\begingroup
+	\raggedright\color{heading}%
+	{\Huge\titlefont\scshape{\@name}\par}
+	\medskip
+	{\footnotesize\rmfamily\@personalinfo\par}
+	\endgroup\medskip
+}
