@@ -54,8 +54,6 @@
 
 
 
-
-
 %%% PERSONAL INFORMATION SECTION
 \newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
 \newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}#2\hspace{1.5em}}}
