@@ -5,6 +5,10 @@
 \RequirePackage{titlesec}
 \RequirePackage{xcolor}
 \RequirePackage{fontspec}
+\RequirePackage{hyperref}
+\RequirePackage[margin=2cm]{geometry}
+\RequirePackage{fontawesome}
+\RequirePackage{etoolbox}
 
 %%% CUSTOMIZE FONTS AND COLORS
 \setmainfont{Droid Serif}
