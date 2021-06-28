@@ -1,6 +1,7 @@
+%%% set up latex class
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{resume}[2021/06/15 - current Tommy White's custom resume class]
+\ProvidesClass{resume}[2021/06/15 - 2021/06/28: Tommy White's current custom resume class]
 
 \RequirePackage{titlesec}
 \RequirePackage{xcolor}
@@ -10,11 +11,23 @@
 \RequirePackage{fontawesome}
 \RequirePackage{etoolbox}
 \RequirePackage{changepage}
+\RequirePackage{dashrule}
+\RequirePackage{enumitem}
+
+\setlist{leftmargin=*, labelsep=0.5em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
+\newcommand{\itemmarker}{{\small\textbullet}}
+\setlist[itemize]{label=\itemmarker}
+
+\AtBeginDocument{%
+  \color{body}
+  \raggedright
+  \sffamily
+}
 
 %%% CUSTOMIZE FONTS AND COLORS
 \setmainfont{Droid Serif}
 \setsansfont{Arial}
-\newfontfamily{\titlefont}{Play} % Go is big/kinda clean, arial, 
+\newfontfamily{\titlefont}{Kurier Heavy} % Go is big/kinda clean, arial, 
 
 % colors
 \definecolor{heading}{HTML}{00693e}
@@ -29,9 +42,16 @@
 
 
 %%% GENERAL FORMATTING
+\newcommand{\divider}{
+    \textcolor{body!50}{
+        \hdashrule{\linewidth}{0.6pt}{0.5ex}
+    }
+    \medskip
+}
+
 \setlength{\parindent}{0pt}
-\newenvironment{fullwidth}{
-    \begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
+\newenvironment{fullwidth}
+    {\begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
     {\end{adjustwidth}}
 
 \newcommand{\resumesection}[2][]{
@@ -46,7 +66,7 @@
 		}
 	}
 	{
-	    \color{heading}\LARGE\bfseries\MakeUppercase{#2}
+	    \color{heading}\LARGE\rmfamily\bfseries\MakeUppercase{#2}
 	}
 	\\[-1ex]
 	{
@@ -81,7 +101,7 @@
 
 %%% PERSONAL INFORMATION SECTION
 \newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
-\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}#2\hspace{1.5em}}}
+\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}\textcolor{body}{#2}\hspace{1.5em}}}
 
 \newcommand{\name}[1]{\def\@name{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\printinfo{\faEnvelope}{#1}}}
@@ -96,7 +116,7 @@
 }
 \newcommand{\github}[2]{
 	\href{#2}{
-		\printinfo{\faGithub}{\textcolor{heading}{#1}}
+		\printinfo{\faGithub}{#1}
 	}
 }
 % I don't use these much, perhaps link on website?
@@ -106,9 +126,9 @@
 %% display personal info
 \newcommand{\makeheader}{%
 	\begingroup
-	\raggedright\color{heading}%
-	{\Huge\titlefont\scshape{\@name}\par}
-	\medskip
+	\centering\color{heading}%
+	{\Huge\titlefont\bfseries\MakeUppercase{\@name}\par}
+	\medskip\raggedright\
 	{\footnotesize\rmfamily\@personalinfo\par}
 	\endgroup\medskip
 }
