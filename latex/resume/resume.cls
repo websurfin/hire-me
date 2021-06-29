@@ -13,6 +13,7 @@
 \RequirePackage{changepage}
 \RequirePackage{dashrule}
 \RequirePackage{enumitem}
+\RequirePackage{anyfontsize}
 
 \setlist{leftmargin=*, labelsep=0.5em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
 \newcommand{\itemmarker}{{\small\textbullet}}
@@ -27,7 +28,7 @@
 %%% CUSTOMIZE FONTS AND COLORS
 \setmainfont{Droid Serif}
 \setsansfont{Arial}
-\newfontfamily{\titlefont}{Kurier Heavy} % Go is big/kinda clean, arial, 
+\newfontfamily{\titlefont}{Arial Black} % Go arial, Kurier Heavy lowercase
 
 % colors
 \definecolor{heading}{HTML}{00693e}
@@ -90,7 +91,7 @@
 	\textbf{\color{accent} #2}\par
 	\smallskip
 	{
-		\small\makebox[0.5\linewidth][l]{
+		\makebox[0.5\linewidth][l]{
 		    \faCalendar\hspace{0.5em} #3
 		}
 		\par
@@ -127,8 +128,8 @@
 \newcommand{\makeheader}{%
 	\begingroup
 	\centering\color{heading}%
-	{\Huge\titlefont\bfseries\MakeUppercase{\@name}\par}
-	\medskip\raggedright\
+	\fontsize{36}{45}{\titlefont\bfseries\scshape{\@name}}\par
+	\medskip
 	{\footnotesize\rmfamily\@personalinfo\par}
 	\endgroup\medskip
 }
