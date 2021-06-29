@@ -20,10 +20,11 @@
 \newcommand{\itemmarker}{{\small\textbullet}}
 \setlist[itemize]{label=\itemmarker}
 
-\AtBeginDocument{%
+\AtBeginDocument{
   \color{body}
   \raggedright
   \sffamily
+  \thispagestyle{empty}
 }
 
 %%% CUSTOMIZE FONTS AND COLORS
@@ -44,20 +45,20 @@
 
 
 %%% GENERAL FORMATTING
+\setlength{\parindent}{0pt}
 \newcommand{\divider}{
     \textcolor{body!50}{
         \hdashrule{\linewidth}{0.6pt}{0.5ex}
     }
-    \medskip
+    % \smallskip
 }
 
-\setlength{\parindent}{0pt}
 \newenvironment{fullwidth}
     {\begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
     {\end{adjustwidth}}
 
 \newcommand{\resumesection}[2][]{
-	\medskip
+	\bigskip
 	\ifstrequal{#1}{}
 	{} 
 	{   % if an argument is passed, it is sidebar data to load
