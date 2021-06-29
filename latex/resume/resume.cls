@@ -139,8 +139,8 @@
 }
 
 
-%%% SKILL SECTION
-\newcommand{\skillentry}[2] {
+%%% SKILL SECTIONS
+\newcommand{\skillrank}[2] {
 	\textcolor{emphasis}{\textbf{#1}}\hfill
 	\foreach \x in {1,...,5} {
   		\space{
@@ -150,4 +150,8 @@
 			\faCircle
 		}
 	}\par
+}
+
+\newcommand{\skilltag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
 }
