@@ -14,6 +14,7 @@
 \RequirePackage{dashrule}
 \RequirePackage{enumitem}
 \RequirePackage{anyfontsize}
+\RequirePackage{tikz}
 
 \setlist{leftmargin=*, labelsep=0.5em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
 \newcommand{\itemmarker}{{\small\textbullet}}
@@ -125,11 +126,27 @@
 % \newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
 
 %% display personal info
-\newcommand{\makeheader}{%
+\newcommand{\makeheader} {
 	\begingroup
-	\centering\color{heading}%
-	\fontsize{36}{45}{\titlefont\bfseries\scshape{\@name}}\par
+	\centering\color{heading}
+	\fontsize{36}{45}{
+		\titlefont\bfseries\scshape{\@name}
+	}\par
 	\medskip
 	{\footnotesize\rmfamily\@personalinfo\par}
 	\endgroup\medskip
+}
+
+
+%%% SKILL SECTION
+\newcommand{\skillentry}[2] {
+	\textcolor{emphasis}{\textbf{#1}}\hfill
+	\foreach \x in {1,...,5} {
+  		\space{
+			\ifnumgreater{\x}{#2}
+				{\color{body!40}}
+				{\color{accent}}
+			\faCircle
+		}
+	}\par
 }
