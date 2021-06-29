@@ -18,7 +18,7 @@
 \RequirePackage{unicode-math}
 
 \setlist{leftmargin=*, labelsep=0.45em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
-\newcommand{\itemmarker}{{\textcolor{accent}{\hspace{0.3em}$\s{\odot}$}}}
+\newcommand{\itemmarker}{{\textcolor{accent}{\hspace{0.3em}\raisebox{1pt}{$\odot$}}}}
 \setlist[itemize]{label=\itemmarker}
 
 \AtBeginDocument{
@@ -50,7 +50,7 @@
     \textcolor{body!50}{
         \hdashrule{\linewidth}{0.6pt}{0.5ex}
     }
-    % \smallskip
+    % \medskip
 }
 
 \newenvironment{fullwidth}
@@ -82,7 +82,7 @@
 	{
 	    \color{emphasis}\large\bfseries{#1}\par
 	}
-	\medskip
+	% \medskip
 }
 
 \newcommand{\datedentry}[4]{
