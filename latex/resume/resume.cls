@@ -15,20 +15,20 @@
 \RequirePackage{enumitem}
 \RequirePackage{anyfontsize}
 \RequirePackage{tikz}
+\RequirePackage{unicode-math}
 
-\setlist{leftmargin=*, labelsep=0.5em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
-\newcommand{\itemmarker}{{\small\textbullet}}
+\setlist{leftmargin=*, labelsep=0.45em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
+\newcommand{\itemmarker}{{\textcolor{accent}{\hspace{0.3em}$\s{\odot}$}}}
 \setlist[itemize]{label=\itemmarker}
 
 \AtBeginDocument{
   \color{body}
   \raggedright
-  \sffamily
   \thispagestyle{empty}
 }
 
 %%% CUSTOMIZE FONTS AND COLORS
-\setmainfont{Droid Serif}
+\setmainfont{Garamond}
 \setsansfont{Arial}
 \newfontfamily{\titlefont}{Arial Black} % Go arial, Kurier Heavy lowercase
 
@@ -71,14 +71,14 @@
 	{
 	    \color{heading}\LARGE\rmfamily\bfseries\MakeUppercase{#2}
 	}
-	\\[-1ex]
+	\\[-0.5ex]
 	{
 	    \color{heading}\rule{\linewidth}{2pt}\par
 	}
 }
 
 \newcommand{\resumesubsection}[1]{
-	\smallskip
+	% \smallskip
 	{
 	    \color{emphasis}\large\bfseries{#1}\par
 	}
