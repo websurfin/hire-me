@@ -1,0 +1,4 @@
+# ignore intermediate data/outputs/logs from latex files
+latex/resume/main.*
+!latex/resume/main.tex
+!latex/resume/main.pdf
