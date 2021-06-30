@@ -43,6 +43,13 @@
 \colorlet{emphasis}{emphasis}
 \colorlet{body}{body}
 
+\hypersetup{
+	colorlinks=true,
+	linkcolor=emphasis,
+	filecolor=emphasis,
+	urlcolor=emphasis
+}
+
 
 %%% GENERAL FORMATTING
 \setlength{\parindent}{0pt}
