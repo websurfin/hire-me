@@ -16,12 +16,12 @@
 \RequirePackage{anyfontsize}
 \RequirePackage{tikz}
 
-\setlist{leftmargin=*, labelsep=0.45em, nosep, itemsep=0.25\baselineskip}
+\setlist{leftmargin=*, labelsep=0em, nosep, itemsep=0.22\baselineskip}
 
 \newcommand{\itemmarker}{
 	{
 		\textcolor{accent}{
-			\hspace{0.3em}\raisebox{1pt}{$\odot$}
+			\raisebox{1pt}{$\odot$}
 		}
 	}
 }
@@ -147,21 +147,20 @@
 		\titlefont\bfseries\scshape{\@name}
 	}\par
 	\medskip
-	{\footnotesize\rmfamily\@personalinfo\par}
+	{\small\rmfamily\@personalinfo\par}
 	\endgroup\medskip
 }
 
 
 %%% SKILL SECTIONS
-\newcommand{\skillrank}[2] {
-	\textcolor{emphasis}{\textbf{#1}}\hfill
-	\foreach \x in {1,...,5} {
-  		\space{
-			\ifnumgreater{\x}{#2}
-				{\color{body!40}}
-				{\color{accent}}
-			\faCircle
-		}
+\newcommand{\skillrank}[2]{
+	\textcolor{emphasis}{\textbf{#1}}
+	\hfill
+	\foreach \x in {1,...,5}{
+		\ifnumgreater{\x}{#2}
+			{\color{body!40}}
+			{\color{accent}}
+		\faCircle
 	}\par
 }
 
