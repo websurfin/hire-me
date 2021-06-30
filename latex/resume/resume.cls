@@ -15,10 +15,16 @@
 \RequirePackage{enumitem}
 \RequirePackage{anyfontsize}
 \RequirePackage{tikz}
-\RequirePackage{unicode-math}
 
-\setlist{leftmargin=*, labelsep=0.45em, nosep, itemsep=0.25\baselineskip, after=\vskip0.25\baselineskip}
-\newcommand{\itemmarker}{{\textcolor{accent}{\hspace{0.3em}\raisebox{1pt}{$\odot$}}}}
+\setlist{leftmargin=*, labelsep=0.45em, nosep, itemsep=0.25\baselineskip}
+
+\newcommand{\itemmarker}{
+	{
+		\textcolor{accent}{
+			\hspace{0.3em}\raisebox{1pt}{$\odot$}
+		}
+	}
+}
 \setlist[itemize]{label=\itemmarker}
 
 \AtBeginDocument{
@@ -55,9 +61,10 @@
 \setlength{\parindent}{0pt}
 \newcommand{\divider}{
     \textcolor{body!50}{
-        \hdashrule{\linewidth}{0.6pt}{0.5ex}
-    }
-    % \medskip
+		\hdashrule[0.5ex]{\linewidth}{0.5pt}{%
+			0.5pt 0.2mm 1mm 0.4pt}
+        % \hdashrule{\linewidth}{0.5pt}{0.5ex}
+    }\\[-2ex]
 }
 
 \newenvironment{fullwidth}
@@ -65,7 +72,7 @@
     {\end{adjustwidth}}
 
 \newcommand{\resumesection}[2][]{
-	\bigskip
+	\smallskip
 	\ifstrequal{#1}{}
 	{} 
 	{   % if an argument is passed, it is sidebar data to load
@@ -84,14 +91,6 @@
 	}
 }
 
-\newcommand{\resumesubsection}[1]{
-	% \smallskip
-	{
-	    \color{emphasis}\large\bfseries{#1}\par
-	}
-	% \medskip
-}
-
 \newcommand{\datedentry}[4]{
 	{
 	    \large\color{emphasis} #1 \par
@@ -103,6 +102,13 @@
 		\makebox[0.5\linewidth][l]{
 		    \faCalendar\hspace{0.5em} #3
 		}
+		\ifstrequal{#4}{}
+			{}
+			{
+				\makebox[0.45\linewidth][r]{
+					\faMapMarker\hspace{0.5em}#4
+				}
+			}
 		\par
 	}
 	\medskip
