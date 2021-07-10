@@ -11,7 +11,7 @@ This repository contains two main subdirectories:
     * In `~/resume/`, there are three files:
         * `resume.cls`, a class file that I use to define a clean, two column resume format which allows for easy 
             customization and generation of resumes for my job applications.
-        * `main.tex`, the main latex file using the resume class provided by `resume.cls`
+        * `tommy_w_resume.tex`, the main latex file using the resume class provided by `resume.cls`
         * `sidebar.tex`, a supplementary latex file defining information to be placed in the sidebar (i.e. the smaller
             column) of the resume.
-        * `main.pdf`, latest version of my resume pdf.
+        * `tommy_w_resume.pdf`, latest version of my resume pdf.
