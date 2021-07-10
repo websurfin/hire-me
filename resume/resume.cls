@@ -126,8 +126,8 @@
 % Maybe use \location for more public cases and \address for more private cases
 \newcommand{\phone}[1]{\printinfo{\faMobile}{#1}}
 \newcommand{\website}[1]{
-	\href{#1}{
-		\printinfo{\faChain}{\textcolor{heading}{Website}}
+	\href{https://#1}{
+		\printinfo{\faChain}{\textcolor{heading}{#1}}
 	}
 }
 \newcommand{\github}[2]{
@@ -147,7 +147,7 @@
 		\titlefont\bfseries\scshape{\@name}
 	}\par
 	\medskip
-	{\small\rmfamily\@personalinfo\par}
+	{\normalsize\rmfamily\@personalinfo\par}
 	\endgroup\medskip
 }
 
