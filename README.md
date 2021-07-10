@@ -14,8 +14,4 @@ This repository contains two main subdirectories:
         * `main.tex`, the main latex file using the resume class provided by `resume.cls`
         * `sidebar.tex`, a supplementary latex file defining information to be placed in the sidebar (i.e. the smaller
             column) of the resume.
-
-* `~/website/`, holding the source code for my website.
-    * The basic website format will consist of a few top-level pages (resume, about me, etc.), a `posts/` directory 
-        which will be populated with blog posts as I write them, and a `projects/` directory providing information
-        about various projects.
+        * `main.pdf`, latest version of my resume pdf.
