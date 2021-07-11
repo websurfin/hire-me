@@ -1,3 +1,5 @@
+% Resume class created by Tommy White based on AltaCV v1.1.3 template found on Overleaf
+
 %%% set up latex class
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
