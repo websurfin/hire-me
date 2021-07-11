@@ -42,7 +42,7 @@
 \definecolor{heading}{HTML}{00693e}
 \definecolor{body}{HTML}{5a6773}
 \definecolor{accent}{HTML}{2f4f4f}
-\definecolor{emphasis}{HTML}{2b6900}
+\definecolor{emphasis}{HTML}{2D6904}
 
 \colorlet{heading}{heading}
 \colorlet{accent}{accent}
@@ -116,38 +116,52 @@
 
 
 %%% PERSONAL INFORMATION SECTION
-\newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
-\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}\textcolor{body}{#2}\hspace{1.5em}}}
+\newcommand{\name}[1]{\def\@name{#1}}  % set author name with \name
+\newcommand{\contactbar}[1]{\def\@contactbar{#1}}  % set contact bar info using \contactbar and the commands below
 
-\newcommand{\name}[1]{\def\@name{#1}}
-\newcommand{\email}[1]{\href{mailto:#1}{\printinfo{\faEnvelope}{#1}}}
-\newcommand{\location}[1]{\printinfo{\faMapMarker}{#1}}
-\newcommand{\address}[1]{\printinfo{\faMapMarker}{#1}} % feels a bit sensitive to share address so easily? 
-% Maybe use \location for more public cases and \address for more private cases
-\newcommand{\phone}[1]{\printinfo{\faMobile}{#1}}
-\newcommand{\website}[1]{
-	\href{#1}{
-		\printinfo{\faChain}{\textcolor{heading}{Website}}
+\newcommand{\printinfo}[2]{  % command used by content_bar commands below
+	\mbox{
+		\textcolor{accent}{#1}
+		\hspace{0.5em}
+		\textcolor{body}{#2}
+		\hspace{1.5em}
+	}
+}  
+
+%% contact_bar commands
+\newcommand{\location}[1]{\printinfo{\faMapMarker}{#1}}  % add a location
+\newcommand{\address}[1]{\printinfo{\faMapMarker}{#1}}  % add an address. Feels a bit sensitive to share address so 
+							% easily? Maybe use \location for more public cases and \address for more private cases
+\newcommand{\phone}[1]{\printinfo{\faMobile}{#1}}  % add a phone number
+\newcommand{\email}[1]{  % add an email address with a mailto: link
+	\href{mailto:#1}{
+		\printinfo{\faEnvelope}{\textcolor{heading}{#1}}
 	}
 }
-\newcommand{\github}[2]{
+\newcommand{\website}[1]{  % add a website with an https link (use format site.tld/)
+	\href{https://#1}{
+		\printinfo{\faChain}{\textcolor{heading}{#1}}
+	}
+}
+\newcommand{\github}[2]{  % add a github account, provide account name then link to the account
 	\href{#2}{
 		\printinfo{\faGithub}{#1}
 	}
 }
-% I don't use these much, perhaps link on website?
-% \newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
-% \newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+
+% I don't use these much, perhaps link on website? Convert link format if used.
+% \newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}  % add a Twitter
+% \newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}  % add a LinkedIn
 
 %% display personal info
-\newcommand{\makeheader} {
+\newcommand{\makecontactbar} {  % after setting \name and \contactbar, call this to print personal information
 	\begingroup
 	\centering\color{heading}
 	\fontsize{36}{45}{
 		\titlefont\bfseries\scshape{\@name}
 	}\par
 	\medskip
-	{\small\rmfamily\@personalinfo\par}
+	{\normalsize\rmfamily\@contactbar\par}
 	\endgroup\medskip
 }
 

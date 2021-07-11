@@ -1,4 +1,4 @@
 # ignore intermediate data/outputs/logs from latex files
-resume/main.*
-!resume/main.tex
-!resume/main.pdf
+resume/tommy_w_resume.*
+!resume/tommy_w_resume.tex
+!resume/tommy_w_resume.pdf
