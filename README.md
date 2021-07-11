@@ -10,7 +10,7 @@ This repository contains two main subdirectories:
 
 * In `~/coverletter/`, there are two files: 
     * `coverletter.cls`, a LaTex class file I wrote to have a more customizable letter format. This format will allow
-        for... (yet to be implemented)
+        for... (yet to be implemented).
     * `main.tex`, the main latex file utilizing the coverletter class provided by `coverletter.cls`
 * In `~/resume/`, there are three files:
     * `resume.cls`, a LaTex class file that I use to define a clean, two column resume format which allows for easy 

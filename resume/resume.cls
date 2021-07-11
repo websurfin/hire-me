@@ -3,21 +3,21 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{resume}[2021/06/15 - 2021/06/28: Tommy White's current custom resume class]
 
-\RequirePackage{titlesec}
-\RequirePackage{xcolor}
-\RequirePackage{fontspec}
-\RequirePackage{hyperref}
-\RequirePackage[margin=2cm]{geometry}
-\RequirePackage{fontawesome}
-\RequirePackage{etoolbox}
+\RequirePackage{anyfontsize}
 \RequirePackage{changepage}
 \RequirePackage{dashrule}
 \RequirePackage{enumitem}
-\RequirePackage{anyfontsize}
+\RequirePackage{etoolbox}
+\RequirePackage{fontawesome}
+\RequirePackage{fontspec}
+\RequirePackage[margin=2cm]{geometry}
+\RequirePackage{hyperref}
 \RequirePackage{tikz}
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
 
+% change how lists are displayed from margins to spacing to the item marker
 \setlist{leftmargin=*, labelsep=0em, nosep, itemsep=0.22\baselineskip}
-
 \newcommand{\itemmarker}{
 	{
 		\textcolor{accent}{
@@ -27,18 +27,20 @@
 }
 \setlist[itemize]{label=\itemmarker}
 
+% tell LaTex which commands to run when the document is loaded
 \AtBeginDocument{
   \color{body}
   \raggedright
   \thispagestyle{empty}
 }
 
+
 %%% CUSTOMIZE FONTS AND COLORS
 \setmainfont{Garamond}
-\setsansfont{Arial}
-\newfontfamily{\titlefont}{Arial Black} % Go arial, Kurier Heavy lowercase
+\setsansfont{Arial}  % Arial is easily readable and dyslexia-friendly, and so makes a great option
+\newfontfamily{\titlefont}{Arial Black}
 
-% colors
+% set resume colors
 \definecolor{heading}{HTML}{00693e}
 \definecolor{body}{HTML}{5a6773}
 \definecolor{accent}{HTML}{2f4f4f}
@@ -49,6 +51,7 @@
 \colorlet{emphasis}{emphasis}
 \colorlet{body}{body}
 
+% set up hyperref link formatting
 \hypersetup{
 	colorlinks=true,
 	linkcolor=emphasis,
@@ -59,19 +62,18 @@
 
 %%% GENERAL FORMATTING
 \setlength{\parindent}{0pt}
-\newcommand{\divider}{
+\newcommand{\divider}{  % adds a divider when \divider is called
     \textcolor{body!50}{
 		\hdashrule[0.5ex]{\linewidth}{0.5pt}{%
 			0.5pt 0.2mm 1mm 0.4pt}
-        % \hdashrule{\linewidth}{0.5pt}{0.5ex}
-    }\\[-2ex]
+    }\\[-2ex]  % adjust this value if the divider is misaligned vertically
 }
 
-\newenvironment{fullwidth}
+\newenvironment{fullwidth}  % use this environment to print to full-width page rather than column
     {\begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
     {\end{adjustwidth}}
 
-\newcommand{\resumesection}[2][]{
+\newcommand{\resumesection}[2][]{  % use \resumesection rather than \section
 	\smallskip
 	\ifstrequal{#1}{}
 	{} 
@@ -85,14 +87,14 @@
 	{
 	    \color{heading}\LARGE\rmfamily\bfseries\MakeUppercase{#2}
 	}
-	\\[-0.5ex]
+	\\[-0.25ex]  % can be adjusted if line below section header is misaligned vertically
 	{
 	    \color{heading}\rule{\linewidth}{2pt}\par
 	}
 }
 
-\newcommand{\datedentry}[4]{
-	{
+\newcommand{\datedentry}[4]{  % use \datedentry to add resume items which are tied to a date or date rante (e.g. jobs)
+	{  % expects title, employer, daterange, location
 	    \large\color{emphasis} #1 \par
 	}
 	\smallskip
@@ -157,7 +159,7 @@
 \newcommand{\makecontactbar} {  % after setting \name and \contactbar, call this to print personal information
 	\begingroup
 	\centering\color{heading}
-	\fontsize{36}{45}{
+	\fontsize{36}{45}{  % set size of name on resume
 		\titlefont\bfseries\scshape{\@name}
 	}\par
 	\medskip
@@ -179,5 +181,14 @@
 }
 
 \newcommand{\skilltag}[1]{%
-  \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+  \tikz[baseline]
+  \node[
+	  anchor=base, 
+	  draw=body!30,
+	  rounded corners,
+	  inner xsep=1ex,
+	  inner ysep =0.75ex,
+	  text height=1.5ex,
+	  text depth=.25ex
+	  ]{#1};
 }
