@@ -76,7 +76,7 @@
     {\end{adjustwidth}}
 
 \newcommand{\resumesection}[2][]{  % use \resumesection rather than \section
-	\smallskip
+	\medskip
 	\ifstrequal{#1}{}
 	{} 
 	{   % if an argument is passed, it is sidebar data to load
@@ -89,9 +89,9 @@
 	{
 	    \color{heading}\LARGE\rmfamily\bfseries\MakeUppercase{#2}
 	}
-	\\[-0.25ex]  % can be adjusted if line below section header is misaligned vertically
+	\\[-0.8ex]  % can be adjusted if line below section header is misaligned vertically
 	{
-	    \color{heading}\rule{\linewidth}{2pt}\par
+	    \color{heading}\rule{\linewidth}{2pt}\par\smallskip
 	}
 }
 
