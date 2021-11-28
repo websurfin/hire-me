@@ -1,9 +1,10 @@
-% Resume class created by Tommy White based on AltaCV v1.1.3 template found on Overleaf
+% Resume class created by Tommy White built on top of the codebase of the AltaCV v1.1.3 template found on Overleaf
+% Longterm goal will be to write my own format, but the AltaCV template served as an excellent introduction.
 
 %%% set up latex class
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{resume}[2021/06/15 - 2021/06/28: Tommy White's current custom resume class]
+\ProvidesClass{resume}[2021/06/15 - 2021/11/27: Tommy White's current custom resume class]
 
 \RequirePackage{anyfontsize}
 \RequirePackage{changepage}
@@ -38,9 +39,9 @@
 
 
 %%% CUSTOMIZE FONTS AND COLORS
-\setmainfont{Garamond}
+\setmainfont{Palatino}
 \setsansfont{Arial}  % Arial is easily readable and dyslexia-friendly, and so makes a great option
-\newfontfamily{\titlefont}{Arial Black}
+\newfontfamily{\titlefont}{American Typewriter}
 
 % set resume colors
 \definecolor{heading}{HTML}{00693e}
@@ -123,12 +124,12 @@
 \newcommand{\name}[1]{\def\@name{#1}}  % set author name with \name
 \newcommand{\contactbar}[1]{\def\@contactbar{#1}}  % set contact bar info using \contactbar and the commands below
 
-\newcommand{\printinfo}[2]{  % command used by content_bar commands below
+\newcommand{\printinfo}[2]{  % command used by contact_bar commands below
 	\mbox{
 		\textcolor{accent}{#1}
 		\hspace{0.5em}
 		\textcolor{body}{#2}
-		\hspace{1.5em}
+		\hspace{1em}
 	}
 }  
 
@@ -161,11 +162,11 @@
 \newcommand{\makecontactbar} {  % after setting \name and \contactbar, call this to print personal information
 	\begingroup
 	\centering\color{heading}
-	\fontsize{36}{45}{  % set size of name on resume
-		\titlefont\bfseries\scshape{\@name}
+	\fontsize{40}{45}{  % set size of name on resume
+		\titlefont\bfseries{\@name}
 	}\par
 	\medskip
-	{\normalsize\rmfamily\@contactbar\par}
+	{\normalsize\centering\rmfamily\@contactbar\par}
 	\endgroup\medskip
 }
 

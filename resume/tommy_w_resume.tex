@@ -3,14 +3,14 @@
 % main resume content created by Tommy White based on AltaCV v1.1.3 template found on Overleaf
 \documentclass[11pt]{resume}
 
-\geometry{
-    left=1.5cm,
-    right=9cm,
-    marginparwidth=7cm,
-    marginparsep=0.5cm,
-    top=1.5cm,
-    bottom=1.5cm,
-    footskip=2\baselineskip
+\geometry{                      % NOTE: `marginparwidth + marginparsep` should equal `right - left`
+    left=1.25cm,                % offset of left column start from left side
+    right=9.5cm,                % offset of right column end from right side 
+    marginparwidth=7.75cm,      % offset of right column start from right side
+    marginparsep=0.5cm,         % margin between columns
+    top=1.5cm,                  % top margin
+    bottom=1.5cm,               % bottom margin
+    footskip=1.5\baselineskip
 }
 
 \begin{document}
@@ -48,8 +48,8 @@
         \item Applied these algorithms to \href
             {https://en.wikipedia.org/wiki/Link_prediction#Problem_definition}
             {Social Network prediction problems}.
-        \item Managed datasets with terabytes of data as well as the dozens of computation jobs used to
-            process and analyze this data.
+        \item Managed datasets with terabytes of data as well as the thousands of computation jobs 
+            used to process and analyze this data.
     \end{itemize}
 
     \divider
@@ -69,7 +69,7 @@
     % \divider
 
     \datedentry
-        {Software Engineering Internship}
+        {Junior Developer}
         {Amazon.com}
         {Jan. 2017 -- Dec. 2017}
         {San Luis Obispo, CA}
@@ -78,8 +78,8 @@
         \setlength{\itemindent}{-0.8em}
         \item Worked as part of an Amazon Prime server team; my code has directly affected millions of
             transactions.
-        \item Redeveloped the code deployment pipeline and rollback system to enable my team to 
-            quickly recover from issues in production code.
+        \item Reworked the code deployment pipeline and rollback system to facilitate faster recovery
+            from issues in production code.
         \item Developed API to facilitate automatic upselling of Prime memberships to customers 
             based on their current membership status, region, and other factors.
     \end{itemize}
